@@ -22,13 +22,13 @@ export default function Hero() {
 
 
                 <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl">
-                    I build scalable web applications with clean frontend experiences,
-                    robust backend systems, and cloud-based architectures.
+                    Software Engineer focused on backend systems and scalable applications.
+
+                    I build production-ready APIs, data pipelines, and cloud-based systems using Java, Python, and AWS.
                 </p>
 
-                <p className="mt-4 text-gray-500 max-w-xl leading-7">
-                    Focused on building production-ready systems using modern technologies
-                    across the full stack.
+                <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl">
+                    Actively seeking Software Engineering roles.
                 </p>
 
                 <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
