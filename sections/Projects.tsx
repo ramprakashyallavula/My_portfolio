@@ -84,7 +84,8 @@ export default function Projects() {
                             {project.tech}
                         </p>
 
-                        <div className="mt-6 flex gap-6">
+
+                        {false && (<div className="mt-6 flex gap-6">
                             <a
                                 href={project.github}
                                 className="text-sm text-white transition hover:opacity-70"
@@ -98,7 +99,7 @@ export default function Projects() {
                             >
                                 Live →
                             </a>
-                        </div>
+                        </div>)}
                     </motion.div>
                 ))}
             </div>

@@ -1,11 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
+    useEffect(() => {
+        if (!window.location.hash) {
+            window.history.scrollRestoration = "manual";
+            window.scrollTo(0, 0);
+        }
+    }, []);
     return (
-        <section className="h-screen flex flex-col justify-center items-center text-center px-6">
-
+        <section className="flex min-h-screen items-center justify-center bg-black px-6 text-white md:px-20">
             <motion.div
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -21,13 +27,12 @@ export default function Hero() {
                 </h1>
 
 
-                <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl">
+                <p className="<p className=mx-auto mt-6 max-w-3xl text-center text-gray-400">
                     Software Engineer focused on backend systems and scalable applications.
 
-                    I build production-ready APIs, data pipelines, and cloud-based systems using Java, Python, and AWS.
+                    I build production-ready APIs, distributed systems, and cloud-based solutions using Java, Python, and AWS.
                 </p>
-
-                <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl">
+                <p className="<p className= mx-auto mt-4 max-w-xl text-center text-gray-500">
                     Actively seeking Software Engineering roles.
                 </p>
 
@@ -67,6 +72,6 @@ export default function Hero() {
                     </a>
                 </div>
             </motion.div>
-        </section>
+        </section >
     );
 }

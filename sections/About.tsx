@@ -15,15 +15,18 @@ const highlights = [
 
 export default function About() {
     return (
-        <section id="about" className="bg-black px-6 py-20 pb-50 text-white md:px-20">
+        <section
+            id="about"
+            className="scroll-mt-20 bg-black px-6 pt-16 pb-72 text-white md:px-20"
+        >
             <div className="grid max-w-7xl gap-10 md:grid-cols-[1fr_1.2fr]">
                 <div>
-                    <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
+                    <h3 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
                         About
-                    </p>
+                    </h3>
 
-                    <h2 className="text-4xl font-bold md:text-5xl">
-                        I build software with structure, clarity, and purpose.
+                    <h2 className="mb-4 text-2xl uppercase tracking-[0.3em] text-white-500">
+                        I build scalable backend systems and APIs with a focus on reliability, performance, and clean architecture.
                     </h2>
                 </div>
 
