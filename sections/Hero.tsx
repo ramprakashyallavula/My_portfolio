@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hero() {
+    const shouldReduceMotion = useReducedMotion();
+
     useEffect(() => {
         if (!window.location.hash) {
             window.history.scrollRestoration = "manual";
@@ -11,11 +13,11 @@ export default function Hero() {
         }
     }, []);
     return (
-        <section className="flex min-h-screen items-center justify-center bg-black px-6 text-white md:px-20">
+        <section className="flex min-h-screen items-center justify-center bg-black px-6 py-24 text-white md:px-20">
             <motion.div
-                initial={{ opacity: 0, y: 28 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8 }}
                 className="relative z-10 max-w-4xl text-center"
             >
                 <p className="mb-5 text-sm uppercase tracking-[0.35em] text-gray-400">
@@ -27,19 +29,19 @@ export default function Hero() {
                 </h1>
 
 
-                <p className="<p className=mx-auto mt-6 max-w-3xl text-center text-gray-400">
+                <p className="mx-auto mt-6 max-w-3xl text-center text-gray-400">
                     Software Engineer focused on backend systems and scalable applications.
 
                     I build production-ready APIs, distributed systems, and cloud-based solutions using Java, Python, and AWS.
                 </p>
-                <p className="<p className= mx-auto mt-4 max-w-xl text-center text-gray-500">
+                <p className="mx-auto mt-4 max-w-xl text-center text-gray-500">
                     Actively seeking Software Engineering roles.
                 </p>
 
-                <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
                     <a
                         href="#projects"
-                        className="rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black"
+                        className="w-full rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black sm:w-auto"
                     >
                         View Projects
                     </a>
@@ -48,7 +50,7 @@ export default function Hero() {
                         href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black"
+                        className="w-full rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black sm:w-auto"
                     >
                         View Resume
                     </a>
@@ -57,7 +59,7 @@ export default function Hero() {
                         href="https://github.com/ramprakashyallavula"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black"
+                        className="w-full rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black sm:w-auto"
                     >
                         GitHub
                     </a>
@@ -66,7 +68,7 @@ export default function Hero() {
                         href="https://www.linkedin.com/in/ramprakash-yallavula/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black"
+                        className="w-full rounded-full border border-white/20 px-6 py-3 text-sm text-white transition hover:bg-white hover:text-black sm:w-auto"
                     >
                         LinkedIn
                     </a>

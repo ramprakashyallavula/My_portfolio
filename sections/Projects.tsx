@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const projects = [
     {
         title: "Project Management System",
         description:
-            "Full-stack platform with authentication, role-based access, and task tracking, deployed on AWS with CI/CD pipelines.",
+            "Full-stack task-management platform with authentication, role-based access, and task tracking. Deployed on AWS with CI/CD pipelines.",
         tech: "Django · PostgreSQL · AWS",
         github: "#",
         live: "#",
@@ -15,7 +15,7 @@ const projects = [
     {
         title: "NYC Taxi Data Pipeline",
         description:
-            "Distributed data processing system built using Spark and AWS to handle large-scale taxi datasets.",
+            "Data pipeline for processing large-scale NYC taxi datasets with distributed Spark workloads on AWS.",
         tech: "Python · Spark · AWS",
         github: "#",
         live: "#",
@@ -24,7 +24,7 @@ const projects = [
     {
         title: "Waste Food Management System",
         description:
-            "Backend system to manage food donation workflows.",
+            "Backend system designed to organize food-donation workflows.",
         tech: "Java · Spring Boot · MySQL",
         github: "#",
         live: "#",
@@ -33,7 +33,7 @@ const projects = [
     {
         title: "Job Recommendation System",
         description:
-            "NLP-based recommendation engine for job matching.",
+            "NLP-based recommendation engine for matching job information with relevant opportunities.",
         tech: "Python · NLP",
         github: "#",
         live: "#",
@@ -42,9 +42,11 @@ const projects = [
 ];
 
 export default function Projects() {
+    const shouldReduceMotion = useReducedMotion();
+
     return (
-        <section id="projects" className="px-6 md:px-20 pt-2 pb-20 bg-black text-white">
-            <div className="max-w-4xl mb-16">
+        <section id="projects" className="bg-black px-6 pt-2 pb-20 text-white md:px-20">
+            <div className="mx-auto mb-16 max-w-7xl">
                 <h2 className="text-4xl md:text-5xl font-bold">Featured Projects</h2>
                 <p className="mt-4 text-gray-400">
                     A few projects I’ve built, focusing on scalable systems and real-world
@@ -52,18 +54,18 @@ export default function Projects() {
                 </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2">
                 {projects.map((project, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                         className="group rounded-2xl border border-white/10 bg-[#0a0a0a] p-6 transition-all duration-300 ease-out hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
                     >
                         <div
-                            className={`mb-6 h-30 w-full rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500`}
+                            className={`relative mb-6 flex h-32 w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br ${project.gradient} transition-transform duration-500 group-hover:scale-[1.02]`}
                         >
                             <div className="absolute inset-0 opacity-20 blur-2xl bg-gradient-to-r from-white/10 to-white/5" />
 

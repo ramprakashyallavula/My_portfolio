@@ -21,11 +21,11 @@ export default function About() {
         >
             <div className="grid max-w-7xl gap-10 md:grid-cols-[1fr_1.2fr]">
                 <div>
-                    <h3 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    <h3 className="mb-6 text-4xl font-bold leading-tight md:text-6xl">
                         About
                     </h3>
 
-                    <h2 className="mb-4 text-2xl uppercase tracking-[0.3em] text-white-500">
+                    <h2 className="mb-4 text-2xl uppercase tracking-[0.3em] text-gray-400">
                         I build scalable backend systems and APIs with a focus on reliability, performance, and clean architecture.
                     </h2>
                 </div>
@@ -36,6 +36,10 @@ export default function About() {
                         scalable web applications. I enjoy working across the stack, from
                         clean user interfaces to backend systems, APIs, cloud deployment,
                         and data-driven features.
+                    </p>
+
+                    <p className="mt-4 text-lg leading-8 text-gray-400">
+                        My work reflects hands-on practice across APIs, data pipelines, cloud workflows, and full-stack applications, with an emphasis on turning system ideas into maintainable software.
                     </p>
 
                     <div className="mt-8 grid gap-4">
