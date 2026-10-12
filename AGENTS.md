@@ -4,203 +4,120 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-# AGENTS.md — Personal Portfolio
+# Personal Portfolio — project guide
 
-## Project overview
+## Purpose and owner context
 
-This repository is Ram Prakash Yallavula's personal software engineering portfolio. It is a single-page, dark-themed portfolio intended to present professional focus, skills, selected projects, contact information, and a resume to recruiters and prospective employers.
+Ram Prakash Yallavula's personal portfolio for Software Engineer and New Graduate SWE applications. Present real projects, engineering interests, skills, contact details, and a résumé. Never invent achievements, metrics, screenshots, or credentials.
 
-- Project name: Personal Portfolio
-- Local directory: `ram-portfolio`
-- GitHub remote: `https://github.com/ramprakashyallavula/My_portfolio.git`
-- Live website: `https://ramprakashyallavula.com`
-- Hosting/deployment: Vercel (project context supplied by the owner)
-- Domain provider: Cloudflare (project context supplied by the owner)
+- Repository: https://github.com/ramprakashyallavula/My_portfolio
+- Live site: https://ramprakashyallavula.com
+- Directory: `ram-portfolio`
+- Vercel hosting and Cloudflare domain management are owner-provided context, not checked-in deployment configuration.
+- Current redesign is local work. Do not assume it has been deployed.
 
-The GitHub remote is confirmed by the local Git configuration. The live URL, Vercel project, and Cloudflare DNS setup are not represented by configuration files in this repository, so treat those as owner-provided deployment context rather than code-level facts.
+## Stack
 
-## Actual technology stack
+Next.js 16.2.4 App Router; React/React DOM 19.2.4; strict TypeScript; Tailwind CSS 4 via PostCSS; Framer Motion 12; lucide-react icons; @formspree/react 3. Geist and Geist Mono load through next/font/google; Georgia is the editorial serif fallback/system font. Consult package.json and package-lock.json for exact dependency versions.
 
-The installed and configured stack is:
+No database, API routes, authentication, separate UI library, or automated test framework is implemented in this portfolio.
 
-- Next.js `16.2.4` with the App Router (`app/` directory)
-- React `19.2.4` and React DOM `19.2.4`
-- TypeScript `5.9.3`, with strict checking enabled
-- Tailwind CSS `4.2.4`, integrated through `@tailwindcss/postcss`
-- Framer Motion `12.38.0`, used by `Hero` and `Projects`
-- `@formspree/react` `3.0.0`, used by the contact form
-- `next/font`, used to load Geist and Geist Mono in the root layout
-- ESLint `9` with `eslint-config-next` `16.2.4`
-- `lucide-react` `1.14.0`, used for the responsive mobile navigation icons
+## Structure and architecture
 
-There is no separate UI component library, state-management library, database, API route, test framework, or environment-variable integration in the current source tree.
+- `app/layout.tsx`: global styles, fonts, metadata, skip link, profile JSON-LD. Its data-scroll-behavior attribute lets Next manage smooth-scroll behavior during route transitions.
+- `app/page.tsx`: Navbar, Hero, Projects, EngineeringApproach, Skills, Timeline, About, Now, Contact, Footer. Navigation/footer sit outside the main landmark.
+- `app/globals.css`: design tokens, custom semantic CSS classes, responsive rules, focus and reduced-motion styles; retains Tailwind import.
+- `app/projects/[slug]/page.tsx`: static project overviews from shared data; Promise-based route params; unknown slugs call notFound.
+- `app/not-found.tsx`: branded 404.
+- `app/manifest.ts`, `robots.ts`, `sitemap.ts`: site metadata and route discovery.
+- `data/portfolio.ts`: project descriptions, technologies, focus, architecture summaries, skill groups and engineering principles. Legacy gradient fields are currently unused.
+- `sections/`: homepage sections and shared presentation components, described below.
+- `public/resume.pdf`: résumé served at /resume.pdf; starter SVG assets also remain.
+- Root configs: next.config.ts, tsconfig.json, eslint.config.mjs, postcss.config.mjs, package.json/package-lock.json.
+- `backups/`: local recovery copies; do not delete or deploy them accidentally.
 
-## Folder structure and architecture
+Use the `@/*` root alias. Prefer Server Components; client boundaries currently belong to Navbar (menu state), Hero (pointer-responsive motion), Reveal (motion), and Contact (Formspree). Server-rendered sections can pass content into Reveal.
 
-```text
-.
-├── app/
-│   ├── favicon.ico
-│   ├── globals.css       # Tailwind import and global page behavior
-│   ├── layout.tsx        # Root layout, fonts, and metadata
-│   └── page.tsx          # `/` route; composes the portfolio sections
-├── sections/
-│   ├── About.tsx
-│   ├── Contact.tsx
-│   ├── Hero.tsx
-│   ├── Navbar.tsx
-│   ├── Projects.tsx
-│   └── Skills.tsx
-├── public/
-│   ├── resume.pdf         # Resume served at `/resume.pdf`
-│   └── *.svg              # Starter/static SVG assets; use only when relevant
-├── next.config.ts
-├── postcss.config.mjs
-├── eslint.config.mjs
-├── tsconfig.json
-├── package.json
-└── package-lock.json
-```
+## Important components
 
-`app/page.tsx` is the only application route. The reusable-looking page sections intentionally live in the top-level `sections/` directory rather than inside `app/`; do not move them without a specific reason. The `@/*` TypeScript path alias maps to the repository root, so page imports use paths such as `@/sections/Hero`.
+- Hero: full-name introduction, work/résumé actions and a CSS laptop illustration. Hero.module.css owns its multicolour background and responsive layout; it fills at least the opening viewport below the header, without clipping content.
+- Navbar: sticky header, desktop anchors, keyboard-accessible mobile menu. Escape closes and returns focus; selecting a link closes the menu.
+- Projects: four data-driven, staggered project tiles linking to internal overviews.
+- ProjectArtwork: responsive Next Image presentation for four generated conceptual PNGs in `public/projects/`. These are explicitly labelled concept visuals and are NOT product screenshots. The source mapping uses project order/index, so update it if project data is reordered.
+- Reveal: reusable, once-in-view 20px/fade entrance. Content remains visible in server HTML.
+- EngineeringApproach: three numbered principles on a lavender/seafoam/peach background.
+- Skills: Interfaces, Backend, Cloud & delivery, Data & systems.
+- Timeline: undated learning progression, not an employment history.
+- About: personal narrative, project-based proof of work, decorative initials poster, résumé link.
+- Now: current rebuilding/learning/job-search direction.
+- Contact: labelled Formspree form, submitting/errors/success states and email link. Preserve endpoint mgodwrjl. Do not send test submissions without permission.
+- Footer: year, profile links, back-to-top.
+- SectionHeading: legacy unused helper from the previous design; it does not drive current headings.
 
-There are currently no `src/`, `lib/`, `components/`, `hooks/`, `api/`, `tests/`, or `.github/workflows/` directories.
+## Design and styling
 
-## Important components and responsibilities
+The owner explicitly requested a vibrant, dark editorial redesign. Preserve the CURRENT direction, not the superseded light pastel design or the older dark/cyan dashboard:
 
-- `app/layout.tsx`: Defines the root HTML structure, applies Geist font variables, imports global CSS, and sets the document metadata title and description. It is a Server Component by default.
-- `app/page.tsx`: Renders the home page in this order: `Navbar`, `Hero`, `Projects`, `Skills`, `About`, `Contact`.
-- `sections/Navbar.tsx`: Fixed navigation with desktop anchor links and an accessible mobile menu below the `md` breakpoint. The menu closes after selecting a section.
-- `sections/Hero.tsx`: Client Component because it uses `useEffect` and Framer Motion. It renders the introduction, calls to action, resume link, GitHub profile link, and LinkedIn link. On initial load without a URL hash, it resets scroll position to the top.
-- `sections/Projects.tsx`: Client Component because it uses Framer Motion. It owns the in-file `projects` data array and renders four project cards with gradient placeholders, descriptions, and technology labels.
-- `sections/Skills.tsx`: Renders four skill groups: Frontend, Backend, Cloud & DevOps, and Data & Systems.
-- `sections/About.tsx`: Renders the professional summary and three highlight cards for focus, strength, and current learning direction.
-- `sections/Contact.tsx`: Client Component because it uses `@formspree/react`. It renders contact details and a Formspree form with validation errors and success/submitting states.
+- Graphite and midnight foundations use controlled ember-orange, coral, violet and teal glows. Primary text is warm off-white, with muted lavender-gray copy. Avoid a flat black background, plain white/ivory sections, or a monochrome dark/cyan dashboard.
+- Oversized tight sans headings, selective italic serif emphasis, small monospaced labels.
+- Generous whitespace, asymmetric project grid, bold colour bands, restrained corners and thin rules.
+- Custom class-based styling in globals.css is now the main convention. Tailwind remains installed.
+- Project art uses locally stored generated concept images, with no remote image dependency. Keep the “Concept visual” label and do not represent these images as real product screenshots.
+- Keep contrast, visible keyboard focus, semantic headings and accessible names. Decorative art is aria-hidden.
 
-## Design system and styling conventions
+## Navigation and motion
 
-- Preserve the existing minimal dark visual direction: black page backgrounds, white primary text, gray secondary text, subtle white borders, and near-black cards (`#0a0a0a`).
-- Prefer Tailwind utility classes in JSX. Tailwind is loaded from `app/globals.css` with `@import "tailwindcss"` and configured through `postcss.config.mjs`; there is no Tailwind config file.
-- Keep the current layout vocabulary: centered/max-width content containers, generous vertical spacing, rounded cards, thin translucent borders, and pill-shaped buttons/tags.
-- The root layout loads `Geist` and `Geist_Mono` variables, and the body uses the Geist variable with Arial/Helvetica fallbacks.
-- Global CSS sets `scroll-behavior: smooth` and `scroll-padding-top: 60px`. Most component styling is local Tailwind markup rather than custom CSS.
-- Do not introduce arbitrary colors, gradients, motion patterns, or UI libraries without matching the existing visual language and checking responsive behavior.
+Native anchor scrolling targets #projects, #approach, #skills, #journey, #about, #now and #contact. Preserve IDs, hash deep links, and back/forward behavior. Do not reset scroll unconditionally or add scroll hijacking. Header is sticky; scroll-padding-top matches `--header-height` (85px desktop, 71px mobile) so each destination starts directly below it. Project navigation uses Next Link.
 
-## Navigation and scrolling behavior
+Motion is purposeful, not continuous:
+- Reveal uses Framer Motion, 0.75-second ease-out, once in view, short stagger on project pairs.
+- Project artwork gently scales and buttons lift. Hero laptop tilt and translation respond to fine mouse movement with damped springs, reset on pointer leave/cancel, and are disabled for touch/reduced motion. No continuous animation loop.
+- Mobile menu uses CSS grid-row/opacity transitions, with inert and aria-hidden while closed.
+- Reduced-motion preferences disable CSS transitions/animations and Reveal transforms/opacity changes, and restore instant scrolling.
+- Keep the native cursor and scrolling. Avoid heavy parallax, perpetual decorative loops or extra animation dependencies. Decorative arrows have been removed; use text labels for actions.
 
-This is a single-page layout using normal anchor navigation. The navbar and Hero use `#projects`; the navbar also links to `#skills`, `#about`, and `#contact`. Section IDs are part of the navigation contract and should not be changed casually.
+## Responsive requirements
 
-The navbar is fixed at the top with a translucent black background and backdrop blur. The global `scroll-padding-top` and section-level `scroll-mt-*` classes help offset anchor targets. `Hero.tsx` sets `window.history.scrollRestoration = "manual"` and scrolls to the top only when the page loads without a hash. Preserve hash navigation and back/forward behavior when changing scroll logic.
+Custom CSS breakpoints are 1100px and 760px, not Tailwind defaults. Narrow screens use one-column hero/projects/skills/about/contact; project stagger is removed; menu replaces desktop links. Keep buttons at comfortable touch sizes, long text wrapping, and no horizontal page overflow. Verify approximately 320–390px, tablet and desktop widths, including project routes.
 
-Use Next.js routing conventions for future routes. For this current same-page navigation, plain anchors are intentional and should remain functional.
+## Résumé and projects
 
-## Animation conventions
+Résumé links in navigation, Hero and About open /resume.pdf in a new tab with noopener/noreferrer. There is no separate Résumé route or section. Preserve the PDF.
 
-- Keep Framer Motion client boundaries limited to components that actually need browser APIs or motion behavior.
-- Hero entrance: `opacity: 0`/`y: 28` to visible at `y: 0`, with a `0.8s` transition.
-- Project cards: animate once when entering the viewport from `y: 20` with `0.65s` duration and the existing easing curve.
-- CSS hover transitions provide card lift, border, shadow, gradient scale, button inversion, and text-opacity changes.
-- Preserve `viewport={{ once: true }}` behavior unless there is a deliberate accessibility/performance reason to change it.
-- Respect reduced-motion preferences when adding new motion, and avoid adding animation to every section by default.
+Projects:
+1. Project Management System — Django, PostgreSQL, AWS, CI/CD.
+2. NYC Taxi Data Pipeline — Python, Spark, AWS.
+3. Waste Food Management System — Java, Spring Boot, MySQL.
+4. Job Recommendation System — Python, NLP.
 
-## Responsive design requirements
+Project GitHub and Live Demo links are intentionally unavailable while rebuilding. Do not enable them without verified URLs AND explicit owner permission. Footer profile links are separate and remain available. Overviews and architecture summaries reflect portfolio data, not an audit of those projects' repositories.
 
-The page is mobile-first and uses Tailwind `sm`/`md` breakpoints. Preserve usable layouts at narrow widths:
+## Development and verification
 
-- Hero actions stack on small screens and become a row at `sm`.
-- Navbar links are available through the desktop navigation and an accessible menu on small screens.
-- Projects use one column on small screens and two columns from `md` upward.
-- Skills use one column on small screens and two columns from `md` upward.
-- About and Contact switch from stacked content to grid layouts at `md`.
-- Keep text readable, buttons reachable, anchor targets visible below the fixed navbar, and long project/contact content free of horizontal overflow.
+- `npm ci`: reproducible dependency installation.
+- `npm run dev -- --hostname 127.0.0.1`: local preview.
+- `npm run lint`: ESLint.
+- `npx tsc --noEmit`: strict type check.
+- `npm run build`: production verification (Google font download needs network access).
+- `npm run start`: serve an already-built production bundle.
 
-## Resume integration
+No test script/framework exists. For UI changes run lint, type check and build, then verify desktop/mobile, menu keyboard behavior, hash navigation, internal project links, résumé response and form labels. Test reduced-motion behavior when browser tooling supports it. Do not claim external form delivery tested without actually doing so.
 
-The only resume integration currently implemented is `public/resume.pdf`, a two-page PDF served as `/resume.pdf`. The Hero's `View Resume` anchor opens it in a new tab with `target="_blank"` and `rel="noopener noreferrer"`.
+## Git, deployment and recovery
 
-There is no separate Resume section, route, download handler, or resume component. If a dedicated Resume section is added later, preserve the existing PDF path unless the owner explicitly approves a change and verify the production link.
+Never commit, push or deploy without explicit permission. Current user preference is local review before deployment. No checked-in Vercel/Cloudflare settings or GitHub Actions workflow exists; confirm actual integration/branch settings before a release. Do not modify DNS.
 
-## Projects section
+Preserve existing user changes. Before major edits, keep a recoverable source copy. The pre-laptop-hero snapshot is `backups/before-laptop-hero.bdkBEi/source.tar.gz`. The pre-colour-redesign snapshot is `backups/before-color-redesign.NQV0cD/source.tar.gz`. The snapshot immediately before the unified light palette, stronger laptop motion, and realistic concept visuals is `backups/before-unified-theme.tVks0L/source.tar.gz`. The snapshot immediately before the dark vibrant editorial palette is `backups/before-dark-vibrant.Vp3Bhx/source.tar.gz`; older backups also exist. Archives exclude generated dependencies/build files. To restore, first extract into a separate folder, inspect it and obtain approval before overwriting the working project. Reinstall dependencies from the included lockfile as necessary.
 
-`sections/Projects.tsx` currently contains four in-file project records:
+## Limitations and future work
 
-1. Project Management System — Django, PostgreSQL, AWS
-2. NYC Taxi Data Pipeline — Python, Spark, AWS
-3. Waste Food Management System — Java, Spring Boot, MySQL
-4. Job Recommendation System — Python, NLP
+- New styling and routes may not match the public deployment until approved deployment occurs.
+- No real project screenshots, verified demos, repository evidence, measured outcomes or full technical case studies yet.
+- No automated interaction tests or measured performance audit.
+- Formspree delivery depends on its external service. Preserve the owner-provided 24-hour response statement unless asked to change it.
+- Font downloads require build-time network access.
+- Local source backups are not independent/off-device backups.
 
-Each record contains a title, description, technology string, `github` and `live` placeholders set to `"#"`, and a background gradient class. The project cards render the title, description, tech label, and gradient placeholder.
+Planned, not completed: rebuild the software projects; add real evidence/screenshots/trade-offs; add verified GitHub/demo URLs with permission; improve recruiter-focused descriptions and truthful proof of work as evidence becomes available; continue accessible, responsive, performant refinement for SWE applications.
 
-The GitHub and Live Demo controls are intentionally disabled with `{false && (...)}`. Never enable, replace, or expose these links without explicit owner permission. Do not invent project achievements, metrics, links, or claims while improving descriptions.
-
-## Deployment and Git workflow
-
-The owner identifies Vercel as the deployment platform and Cloudflare as the domain provider. The repository contains no Vercel configuration, Cloudflare configuration, GitHub Actions workflow, or documented deployment script. Do not infer details such as the Vercel project name, build settings, DNS records, preview/production branch, or environment variables.
-
-The expected workflow is:
-
-1. Make a focused local change.
-2. Run the relevant checks locally.
-3. Review the diff and confirm only intended files changed.
-4. Commit and push only after the owner explicitly asks for it.
-5. Let the connected Vercel/GitHub integration deploy if that external connection is configured.
-6. Verify the production URL and any affected external links after deployment.
-
-Never commit or push automatically. Do not change Cloudflare or Vercel settings as part of a code-only request.
-
-## Development and testing commands
-
-Install dependencies with the lockfile:
-
-```bash
-npm install
-```
-
-Available scripts from `package.json`:
-
-```bash
-npm run dev       # Start the Next.js development server
-npm run build     # Create a production build
-npm run start     # Serve the production build locally
-npm run lint      # Run ESLint
-```
-
-There is no `test` script and no test framework configured. For a normal change, run at least `npm run lint`; for changes affecting rendering, routing, or production behavior, also run `npm run build`. Use `npm run start` only after a successful build when production-mode verification is needed.
-
-## Coding standards and best practices
-
-- Preserve the existing design and behavior; do not rebuild the portfolio from scratch.
-- Modify only the files needed for the requested change. Keep unrelated user changes intact.
-- Use strict, maintainable TypeScript and existing React/Next.js conventions.
-- Keep Server Components as the default. Add or retain `"use client"` only where hooks, browser APIs, Formspree state, or Framer Motion require it.
-- Prefer data-driven rendering for repeated project, skill, or highlight items, as the current components do.
-- Use the existing `@/*` alias for root-relative imports where it improves clarity.
-- Preserve semantic headings, labels, form requirements, external-link security attributes, and keyboard-accessible controls.
-- Do not add claims, achievements, performance numbers, technologies, or project links unless they are supplied by the owner or present in verified project source.
-- Keep the website responsive and check narrow and wide layouts after UI changes.
-- Explain significant changes in beginner-friendly language.
-- Do not commit or push unless explicitly authorized.
-
-## Known limitations and source-of-truth discrepancies
-
-- The requested “Resume” item is not a page section; it is currently a Hero link to `/resume.pdf`.
-- The Projects GitHub/Live Demo controls are intentionally disabled, and their data URLs are only `"#"` placeholders.
-- No automated tests are configured. Form behavior depends on the external Formspree endpoint ID in `Contact.tsx`.
-- The repository has no checked-in deployment workflow or hosting configuration for Vercel/Cloudflare.
-- The contact form displays an owner-provided “within 24 hours” response-time statement; do not alter it without permission.
-
-## Planned future improvements
-
-Completed in the current working tree:
-
-1. Improved project descriptions for recruiter readability without adding metrics or unsupported claims.
-2. Added a truthful proof-of-work statement to About.
-3. Improved mobile navigation, spacing, and reduced-motion behavior.
-
-Still planned:
-
-4. Rebuild the existing software engineering projects.
-5. Add verified GitHub and Live Demo links after projects are completed and permission is given.
-6. Continue improving the portfolio for Software Engineer and New Graduate SWE applications.
-
-Before implementing any plan, inspect the current files again, make the smallest focused change, run the relevant checks, and report any behavior or content discrepancy.
+Keep changes scoped and explain significant changes in beginner-friendly language. Do not rebuild the underlying application or replace its integrations unnecessarily.

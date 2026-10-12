@@ -20,6 +20,9 @@
 # production
 /build
 
+# local recovery archives
+/backups/
+
 # misc
 .DS_Store
 *.pem

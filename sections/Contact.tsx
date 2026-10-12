@@ -4,109 +4,18 @@ import { useForm, ValidationError } from "@formspree/react";
 
 export default function Contact() {
     const [state, handleSubmit] = useForm("mgodwrjl");
-
     return (
-        <section
-            id="contact"
-            className="scroll-mt-0 min-h-screen bg-black px-6 pt-2 pb-24 text-white md:px-20"
-        >
-            <div className="grid max-w-7xl items-start gap-16 md:grid-cols-[0.85fr_1.35fr]">
-                <div>
-                    <p className="mb-4 text-sm font-medium uppercase tracking-[0.4em] text-gray-400">
-                        Contact
-                    </p>
-
-                    <h2 className="text-4xl font-bold leading-tight md:text-6xl">
-                        Let’s build something impactful.
-                    </h2>
-
-                    <p className="mt-6 max-w-xl leading-7 text-gray-400">
-                        I’m actively looking for software engineering opportunities where I
-                        can contribute to real-world products, grow as a developer, and work
-                        with teams that care about building reliable software.
-                    </p>
-
-                    <p className="mt-4 text-gray-400">
-                        Response time: <span className="text-white">within 24 hours</span>
-                    </p>
-
-                    <div className="mt-8 space-y-4">
-                        <div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-5">
-                            <p className="text-sm text-gray-500">Email</p>
-                            <p className="mt-2 text-white">
-                                yallavularamprakash@gmail.com
-                            </p>
-                        </div>
-
-                        <div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-5">
-                            <p className="text-sm text-gray-500">LinkedIn</p>
-                            <a
-                                href="https://www.linkedin.com/in/ramprakash-yallavula/"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="mt-2 inline-block text-white transition hover:opacity-70"
-                            >
-                                Connect with me →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-4 pt-8">
-                    <div className="grid gap-4 md:grid-cols-2">
-                        <input
-                            name="firstName"
-                            required
-                            placeholder="First name"
-                            className="w-full rounded-xl border border-white/10 bg-[#0a0a0a] px-5 py-4 text-white outline-none placeholder:text-gray-600 focus:border-white/30"
-                        />
-
-                        <input
-                            name="lastName"
-                            required
-                            placeholder="Last name"
-                            className="w-full rounded-xl border border-white/10 bg-[#0a0a0a] px-5 py-4 text-white outline-none placeholder:text-gray-600 focus:border-white/30"
-                        />
-                    </div>
-
-                    <input
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="Email address"
-                        className="w-full rounded-xl border border-white/10 bg-[#0a0a0a] px-5 py-4 text-white outline-none placeholder:text-gray-600 focus:border-white/30"
-                    />
-                    <ValidationError field="email" errors={state.errors} />
-
-                    <input
-                        name="subject"
-                        required
-                        placeholder="Subject"
-                        className="w-full rounded-xl border border-white/10 bg-[#0a0a0a] px-5 py-4 text-white outline-none placeholder:text-gray-600 focus:border-white/30"
-                    />
-
-                    <textarea
-                        name="message"
-                        required
-                        rows={10}
-                        placeholder="Message"
-                        className="w-full resize-none rounded-xl border border-white/10 bg-[#0a0a0a] px-5 py-4 text-white outline-none placeholder:text-gray-600 focus:border-white/30"
-                    />
-                    <ValidationError field="message" errors={state.errors} />
-
-                    <button
-                        type="submit"
-                        disabled={state.submitting}
-                        className="mt-2 rounded-full bg-white px-7 py-3 text-sm font-medium text-black transition hover:opacity-90 disabled:opacity-50"
-                    >
-                        {state.submitting ? "Sending..." : "Send Message"}
-                    </button>
-
-                    {state.succeeded && (
-                        <p className="text-sm text-gray-400">
-                            Message sent successfully. I’ll get back to you within 24 hours.
-                        </p>
-                    )}
+        <section id="contact" className="contact-section">
+            <div className="wrap contact-grid">
+                <div className="contact-copy"><span className="eyebrow">05 / Your turn</span><h2>Good things<br />start with<br /><em>a hello.</em><span className="contact-star" aria-hidden="true">✳</span></h2><p>Have a role in mind, a project to discuss, or just want to connect? I’d love to hear from you.</p><a className="contact-email" href="mailto:yallavularamprakash@gmail.com">yallavularamprakash@gmail.com</a><p className="response-note">I typically respond within 24 hours.</p></div>
+                <form onSubmit={handleSubmit} className="contact-form">
+                    <div className="name-fields"><div><label htmlFor="firstName">First name</label><input id="firstName" name="firstName" autoComplete="given-name" required placeholder="Jane" /></div><div><label htmlFor="lastName">Last name</label><input id="lastName" name="lastName" autoComplete="family-name" required placeholder="Smith" /></div></div>
+                    <label htmlFor="email">Your email</label><input id="email" name="email" type="email" autoComplete="email" required placeholder="jane@company.com" /><ValidationError field="email" errors={state.errors} />
+                    <label htmlFor="subject">What’s on your mind?</label><input id="subject" name="subject" required placeholder="An opportunity, an idea, a hello..." />
+                    <label htmlFor="message">A little more detail</label><textarea id="message" name="message" required rows={3} placeholder="Tell me about it." /><ValidationError field="message" errors={state.errors} />
+                    <ValidationError errors={state.errors} />
+                    <button className="button button-lime" type="submit" disabled={state.submitting}>{state.submitting ? "Sending…" : "Send your message"}</button>
+                    <div role="status" aria-live="polite">{state.succeeded && <p className="form-success">Thanks for reaching out! Your message is on its way.</p>}</div>
                 </form>
             </div>
         </section>
