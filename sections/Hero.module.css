@@ -40,7 +40,6 @@
 .editorFooter { display: flex; justify-content: space-between; gap: 10px; padding: 8px 12px; background: #304054; font: 8px var(--font-geist-mono), monospace; color: #c5d2e3; }
 .base { height: 15px; background: linear-gradient(#c8ced6, #8e97a6 65%, #525e70); border-radius: 2px 2px 50% 50% / 2px 2px 12px 12px; position: relative; box-shadow: 0 32px 30px #41475e28; }
 .notch { position: absolute; width: 16%; height: 5px; left: 42%; top: 0; background: #626e7f; border-radius: 0 0 6px 6px; }
-.caption { position: absolute; bottom: 8px; right: 10px; color: #d5a995; font: italic 17px Georgia, serif; }
 .bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid #ffffff24; padding-block: 20px; font-size: 10px; letter-spacing: .025em; color: #b8b1c1; }
 .bottom a { display: flex; gap: 14px; align-items: center; min-height: 24px; }
 .scrollMark { height: 23px; width: 15px; border: 1px solid currentColor; border-radius: 9px; position: relative; }
@@ -63,7 +62,6 @@
   .scene { width: min(430px, 94%); margin-inline: auto; height: 300px; }
   .halo { width: 70%; left: 15%; }
   .editorBody { font-size: clamp(8px, 2.2vw, 12px); padding-block: 16px; }
-  .caption { font-size: 14px; bottom: 0; }
   .bottom { font-size: 9px; padding-block: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -40,8 +40,8 @@ Use the `@/*` root alias. Prefer Server Components; client boundaries currently 
 
 ## Important components
 
-- Hero: full-name introduction, work/résumé actions and a CSS laptop illustration. Hero.module.css owns its multicolour background and responsive layout; it fills at least the opening viewport below the header, without clipping content.
-- Navbar: sticky header, desktop anchors, keyboard-accessible mobile menu. Escape closes and returns focus; selecting a link closes the menu.
+- Hero: full-name introduction, work/résumé actions and a CSS laptop illustration. Hero.module.css owns its multicolour background and responsive layout; it fills at least the opening viewport below the header, without clipping content. Do not restore the retired “A place for ideas to become real.” caption.
+- Navbar: sticky header with `rpy.` at left and the four desktop anchors grouped at right; there is intentionally no résumé link in the header. The keyboard-accessible mobile menu contains those same four anchors. Escape closes and returns focus; selecting a link closes the menu.
 - Projects: four data-driven, staggered project tiles linking to internal overviews.
 - ProjectArtwork: responsive Next Image presentation for four generated conceptual PNGs in `public/projects/`. These are explicitly labelled concept visuals and are NOT product screenshots. The source mapping uses project order/index, so update it if project data is reordered.
 - Reveal: reusable, once-in-view 20px/fade entrance. Content remains visible in server HTML.
@@ -82,7 +82,7 @@ Custom CSS breakpoints are 1100px and 760px, not Tailwind defaults. Narrow scree
 
 ## Résumé and projects
 
-Résumé links in navigation, Hero and About open /resume.pdf in a new tab with noopener/noreferrer. There is no separate Résumé route or section. Preserve the PDF.
+Résumé links in Hero and About open /resume.pdf in a new tab with noopener/noreferrer. There is intentionally no résumé link in the navigation and no separate Résumé route or section. Preserve the PDF.
 
 Projects:
 1. Project Management System — Django, PostgreSQL, AWS, CI/CD.

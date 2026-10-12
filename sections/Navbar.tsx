@@ -15,7 +15,6 @@ export default function Navbar() {
             <nav className="nav wrap" aria-label="Main navigation">
                 <a className="wordmark" href="#" onClick={() => setOpen(false)} aria-label="Ram Prakash Yallavula — home">rpy<span>.</span></a>
                 <div className="desktop-links">{links.map(link => <a href={link.href} key={link.href}>{link.label}</a>)}</div>
-                <a className="nav-resume" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé</a>
                 <button ref={toggle} className="menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
             </nav>
             <nav id="mobile-navigation" className={`mobile-links ${open ? "is-open" : ""}`} aria-label="Mobile navigation" aria-hidden={!open} inert={!open}>

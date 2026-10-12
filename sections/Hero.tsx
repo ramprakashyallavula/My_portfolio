@@ -78,7 +78,6 @@ export default function Hero() {
                                     <div className={styles.base}><div className={styles.notch} /></div>
                                 </div>
                             </motion.div>
-                            <span className={styles.caption}>A place for ideas to become real.</span>
                         </div>
                     </Reveal>
                 </div>
