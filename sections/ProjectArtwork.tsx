@@ -1,28 +1,33 @@
 import Image from "next/image";
+import { illustrations } from "@/sections/ProjectIllustrations";
 
-type Props = { index: number };
+/** `autoplay` loops the illustration animation (project pages); otherwise it plays on card hover. */
+type Props = { slug: string; index: number; autoplay?: boolean };
 
-const artwork = [
-    { src: "/projects/project-management-concept.png", position: "center" },
-    { src: "/projects/taxi-pipeline-concept.png", position: "center" },
-    { src: "/projects/food-donation-concept.png", position: "center" },
-    { src: "/projects/job-matching-concept.png", position: "center" },
-];
+export default function ProjectArtwork({ slug, index, autoplay = false }: Props) {
+    const illustration = illustrations[slug];
 
-export default function ProjectArtwork({ index }: Props) {
-    const image = artwork[index] ?? artwork[0];
+    // Lead project: the code-authored TaskFlow AI interface preview.
+    if (!illustration) {
+        return (
+            <div className={`project-art project-art-${index} project-art-interface`} aria-hidden="true">
+                <Image
+                    src="/projects/taskflow-ai-interface.svg"
+                    alt=""
+                    fill
+                    sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1400px) 46vw, 630px"
+                    className="project-art-image"
+                />
+                <span className="concept-label">Interface preview</span>
+            </div>
+        );
+    }
 
+    const { Component, tone } = illustration;
     return (
-        <div className={`project-art project-art-${index}`} aria-hidden="true">
-            <Image
-                src={image.src}
-                alt=""
-                fill
-                sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1400px) 46vw, 630px"
-                className="project-art-image"
-                style={{ objectPosition: image.position }}
-            />
-            <span className="concept-label">Concept visual</span>
+        <div className={`project-art project-art-illustration ill-tone-${tone}${autoplay ? " ill-autoplay" : ""}`} aria-hidden="true">
+            <Component />
+            <span className="concept-label">Illustration</span>
         </div>
     );
 }

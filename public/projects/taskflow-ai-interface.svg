@@ -1,0 +1,147 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="backdrop" x1="80" y1="40" x2="1510" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22183B"/>
+      <stop offset="0.48" stop-color="#0F2F37"/>
+      <stop offset="1" stop-color="#351B30"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#22C7B5"/>
+      <stop offset="1" stop-color="#8B6CF6"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FF9A62"/>
+      <stop offset="1" stop-color="#FF6F61"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-15%" width="120%" height="135%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="36" flood-color="#020409" flood-opacity="0.58"/>
+    </filter>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#backdrop)"/>
+  <circle cx="190" cy="120" r="180" fill="#9B65FF" fill-opacity="0.26" filter="url(#glow)"/>
+  <circle cx="1390" cy="760" r="220" fill="#FF754F" fill-opacity="0.24" filter="url(#glow)"/>
+  <circle cx="1310" cy="100" r="150" fill="#1FD7BD" fill-opacity="0.18" filter="url(#glow)"/>
+  <path d="M0 730C290 617 542 848 815 737C1111 617 1292 648 1600 493V900H0V730Z" fill="#0A0C12" fill-opacity="0.33"/>
+
+  <g filter="url(#shadow)">
+    <rect x="105" y="78" width="1390" height="744" rx="28" fill="#F4F7F8"/>
+    <rect x="105" y="78" width="1390" height="54" rx="28" fill="#E7ECEF"/>
+    <rect x="105" y="105" width="1390" height="27" fill="#E7ECEF"/>
+    <circle cx="143" cy="105" r="7" fill="#FF765E"/>
+    <circle cx="167" cy="105" r="7" fill="#F6BD52"/>
+    <circle cx="191" cy="105" r="7" fill="#4BD297"/>
+    <rect x="570" y="92" width="460" height="26" rx="13" fill="#D9E1E5"/>
+    <circle cx="594" cy="105" r="5" fill="#90A2AC"/>
+    <rect x="608" y="101" width="178" height="8" rx="4" fill="#AAB8BF"/>
+
+    <rect x="105" y="132" width="262" height="690" fill="#111A28"/>
+    <circle cx="151" cy="183" r="19" fill="url(#accent)"/>
+    <path d="M142 184L149 191L161 176" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="181" y="191" fill="#F7FAFC" font-family="Arial, sans-serif" font-size="24" font-weight="700">TaskFlow AI</text>
+    <text x="139" y="242" fill="#7F92A3" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">WORKSPACE</text>
+
+    <rect x="127" y="261" width="218" height="48" rx="12" fill="#1F3045"/>
+    <rect x="143" y="278" width="15" height="15" rx="4" fill="#3DD9C4"/>
+    <text x="177" y="292" fill="#F3F7FA" font-family="Arial, sans-serif" font-size="15" font-weight="600">Dashboard</text>
+    <rect x="143" y="335" width="15" height="15" rx="4" stroke="#788A9B" stroke-width="2"/>
+    <text x="177" y="348" fill="#B9C5CF" font-family="Arial, sans-serif" font-size="15">Tasks</text>
+    <rect x="143" y="390" width="15" height="15" rx="3" stroke="#788A9B" stroke-width="2"/>
+    <text x="177" y="403" fill="#B9C5CF" font-family="Arial, sans-serif" font-size="15">Projects</text>
+    <path d="M143 451H158M150.5 443.5V458.5" stroke="#8E76F7" stroke-width="3" stroke-linecap="round"/>
+    <text x="177" y="457" fill="#B9C5CF" font-family="Arial, sans-serif" font-size="15">AI Planner</text>
+    <path d="M143 505H158V520H143V505ZM147 514L151 510L155 513" stroke="#788A9B" stroke-width="2" stroke-linejoin="round"/>
+    <text x="177" y="518" fill="#B9C5CF" font-family="Arial, sans-serif" font-size="15">Analytics</text>
+    <circle cx="150.5" cy="568" r="8" stroke="#788A9B" stroke-width="2"/>
+    <path d="M150.5 560V557M150.5 579V576" stroke="#788A9B" stroke-width="2" stroke-linecap="round"/>
+    <text x="177" y="573" fill="#B9C5CF" font-family="Arial, sans-serif" font-size="15">Notifications</text>
+
+    <rect x="127" y="728" width="218" height="66" rx="14" fill="#172536"/>
+    <circle cx="157" cy="761" r="16" fill="url(#warm)"/>
+    <text x="152" y="767" fill="#19151A" font-family="Arial, sans-serif" font-size="15" font-weight="800">R</text>
+    <text x="184" y="755" fill="#F3F7FA" font-family="Arial, sans-serif" font-size="13" font-weight="600">Ram Prakash</text>
+    <text x="184" y="775" fill="#7F92A3" font-family="Arial, sans-serif" font-size="11">Software Engineer</text>
+
+    <rect x="367" y="132" width="1128" height="690" fill="#F5F7F8"/>
+    <text x="418" y="194" fill="#101826" font-family="Arial, sans-serif" font-size="30" font-weight="750">Good morning, Ram.</text>
+    <text x="418" y="221" fill="#71808A" font-family="Arial, sans-serif" font-size="14">Here is a clear view of what needs your attention today.</text>
+    <rect x="1311" y="170" width="132" height="42" rx="12" fill="#101A28"/>
+    <path d="M1335 191H1347M1341 185V197" stroke="#4FE0CC" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="1360" y="196" fill="white" font-family="Arial, sans-serif" font-size="13" font-weight="650">New task</text>
+
+    <rect x="418" y="264" width="233" height="125" rx="18" fill="white" stroke="#E1E7EA"/>
+    <circle cx="451" cy="299" r="16" fill="#E3FBF6"/>
+    <path d="M443 299L449 305L459 293" stroke="#19A995" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="477" y="296" fill="#65747E" font-family="Arial, sans-serif" font-size="12" font-weight="600">TODAY</text>
+    <text x="448" y="350" fill="#101826" font-family="Arial, sans-serif" font-size="30" font-weight="750">Focus plan</text>
+    <text x="448" y="373" fill="#7A8992" font-family="Arial, sans-serif" font-size="12">AI-assisted daily schedule</text>
+
+    <rect x="670" y="264" width="233" height="125" rx="18" fill="white" stroke="#E1E7EA"/>
+    <circle cx="703" cy="299" r="16" fill="#F0EBFF"/>
+    <path d="M696 299H710M703 292V306" stroke="#775BE8" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="729" y="296" fill="#65747E" font-family="Arial, sans-serif" font-size="12" font-weight="600">PROJECTS</text>
+    <text x="700" y="350" fill="#101826" font-family="Arial, sans-serif" font-size="30" font-weight="750">Organized</text>
+    <text x="700" y="373" fill="#7A8992" font-family="Arial, sans-serif" font-size="12">Tasks connected to context</text>
+
+    <rect x="922" y="264" width="233" height="125" rx="18" fill="white" stroke="#E1E7EA"/>
+    <circle cx="955" cy="299" r="16" fill="#FFF0E8"/>
+    <path d="M948 304L953 298L958 301L963 293" stroke="#F06F48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="981" y="296" fill="#65747E" font-family="Arial, sans-serif" font-size="12" font-weight="600">PROGRESS</text>
+    <text x="952" y="350" fill="#101826" font-family="Arial, sans-serif" font-size="30" font-weight="750">Visible</text>
+    <text x="952" y="373" fill="#7A8992" font-family="Arial, sans-serif" font-size="12">Analytics without the noise</text>
+
+    <rect x="1174" y="264" width="269" height="125" rx="18" fill="#132437"/>
+    <circle cx="1208" cy="299" r="16" fill="#29415A"/>
+    <path d="M1208 290L1210.8 296.2L1217 299L1210.8 301.8L1208 308L1205.2 301.8L1199 299L1205.2 296.2L1208 290Z" fill="#55E4D0"/>
+    <text x="1235" y="296" fill="#AFC0CC" font-family="Arial, sans-serif" font-size="12" font-weight="600">AI PLANNER</text>
+    <text x="1204" y="348" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Turn intent into action.</text>
+    <text x="1204" y="372" fill="#9FB0BD" font-family="Arial, sans-serif" font-size="12">Parse · break down · schedule</text>
+
+    <rect x="418" y="414" width="647" height="353" rx="20" fill="white" stroke="#E1E7EA"/>
+    <text x="448" y="459" fill="#101826" font-family="Arial, sans-serif" font-size="18" font-weight="700">Today’s priorities</text>
+    <text x="956" y="458" fill="#169E8C" font-family="Arial, sans-serif" font-size="12" font-weight="650">View all tasks</text>
+    <line x1="448" y1="482" x2="1035" y2="482" stroke="#E8ECEF"/>
+
+    <circle cx="469" cy="524" r="12" fill="#E3FBF6" stroke="#43CDB9"/>
+    <path d="M464 524L468 528L475 520" stroke="#1AA993" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="499" y="520" fill="#1A2431" font-family="Arial, sans-serif" font-size="14" font-weight="650">Review API contract</text>
+    <text x="499" y="542" fill="#7A8992" font-family="Arial, sans-serif" font-size="11">TaskFlow AI · Backend</text>
+    <rect x="920" y="510" width="95" height="28" rx="14" fill="#FFF1E8"/>
+    <text x="943" y="528" fill="#D95C35" font-family="Arial, sans-serif" font-size="10" font-weight="700">HIGH</text>
+
+    <line x1="448" y1="566" x2="1035" y2="566" stroke="#EEF1F3"/>
+    <circle cx="469" cy="608" r="12" fill="white" stroke="#C9D3D9" stroke-width="2"/>
+    <text x="499" y="604" fill="#1A2431" font-family="Arial, sans-serif" font-size="14" font-weight="650">Prepare architecture proposal</text>
+    <text x="499" y="626" fill="#7A8992" font-family="Arial, sans-serif" font-size="11">Project planning · 90 minutes</text>
+    <rect x="920" y="594" width="95" height="28" rx="14" fill="#EFEAFF"/>
+    <text x="938" y="612" fill="#6D52D6" font-family="Arial, sans-serif" font-size="10" font-weight="700">IN FOCUS</text>
+
+    <line x1="448" y1="650" x2="1035" y2="650" stroke="#EEF1F3"/>
+    <circle cx="469" cy="692" r="12" fill="white" stroke="#C9D3D9" stroke-width="2"/>
+    <text x="499" y="688" fill="#1A2431" font-family="Arial, sans-serif" font-size="14" font-weight="650">Refine notification workflow</text>
+    <text x="499" y="710" fill="#7A8992" font-family="Arial, sans-serif" font-size="11">Product experience · Reminder service</text>
+    <rect x="920" y="678" width="95" height="28" rx="14" fill="#E9F8F5"/>
+    <text x="941" y="696" fill="#168B7C" font-family="Arial, sans-serif" font-size="10" font-weight="700">PLANNED</text>
+
+    <rect x="1085" y="414" width="358" height="353" rx="20" fill="#101A28"/>
+    <text x="1117" y="458" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">AI focus schedule</text>
+    <text x="1117" y="481" fill="#8EA0AF" font-family="Arial, sans-serif" font-size="11">A practical plan from incomplete tasks</text>
+    <line x1="1130" y1="523" x2="1130" y2="704" stroke="#34516A" stroke-width="2"/>
+    <circle cx="1130" cy="540" r="7" fill="#4DDBC7"/>
+    <text x="1155" y="536" fill="#7F92A3" font-family="Arial, sans-serif" font-size="10" font-weight="700">09:00</text>
+    <text x="1155" y="558" fill="white" font-family="Arial, sans-serif" font-size="13" font-weight="650">Architecture proposal</text>
+    <rect x="1155" y="571" width="205" height="7" rx="3.5" fill="#25394C"/>
+    <rect x="1155" y="571" width="142" height="7" rx="3.5" fill="url(#accent)"/>
+    <circle cx="1130" cy="626" r="7" fill="#9274F5"/>
+    <text x="1155" y="622" fill="#7F92A3" font-family="Arial, sans-serif" font-size="10" font-weight="700">11:00</text>
+    <text x="1155" y="644" fill="white" font-family="Arial, sans-serif" font-size="13" font-weight="650">Review API contract</text>
+    <rect x="1155" y="657" width="205" height="7" rx="3.5" fill="#25394C"/>
+    <rect x="1155" y="657" width="92" height="7" rx="3.5" fill="url(#warm)"/>
+    <circle cx="1130" cy="712" r="7" fill="#FF8A60"/>
+    <text x="1155" y="708" fill="#7F92A3" font-family="Arial, sans-serif" font-size="10" font-weight="700">14:00</text>
+    <text x="1155" y="730" fill="white" font-family="Arial, sans-serif" font-size="13" font-weight="650">Notification workflow</text>
+  </g>
+</svg>
