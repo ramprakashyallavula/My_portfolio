@@ -38,6 +38,8 @@ function toggleTheme() {
     root.dataset.themeTransition = theme === "light" ? "sunrise" : "sunset";
     const transition = document.startViewTransition(apply);
     activeTransition = transition;
+    // Skipping a transition rejects its `ready` promise; that is expected, not an error.
+    transition.ready.catch(() => {});
     transition.finished.finally(() => {
         if (activeTransition !== transition) return;
         activeTransition = null;
