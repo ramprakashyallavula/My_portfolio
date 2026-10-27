@@ -335,7 +335,9 @@ p { line-height: 1.7; }
 .name-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
 .contact-form .button { margin-top: 30px; width: 100%; }
 .contact-form button:disabled { opacity: .6; cursor: wait; }
-.form-success { color: var(--lime); font-size: 14px; margin-top: 15px; }
+.form-success { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 12px 14px; border: 1px solid color-mix(in srgb, var(--sage) 45%, transparent); border-radius: 10px; background: color-mix(in srgb, var(--sage) 14%, transparent); color: var(--sage); font-size: 14px; }
+.form-success svg { flex-shrink: 0; }
+.form-error-box { margin-top: 16px; padding: 12px 14px; border: 1px solid color-mix(in srgb, var(--error) 45%, transparent); border-radius: 10px; background: color-mix(in srgb, var(--error) 10%, transparent); }
 .form-error { color: var(--error); font-size: 13px; margin-top: 8px; }
 .contact-section :focus-visible { outline-color: var(--orange); }
 .site-footer { background: var(--footer); color: var(--ink); border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
