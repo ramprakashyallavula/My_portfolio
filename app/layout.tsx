@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
+import KeyboardShortcuts from "@/sections/KeyboardShortcuts";
 import { CursorSparkles, ScrollProgress } from "@/sections/ScrollEffects";
 import "./globals.css";
 
@@ -94,6 +95,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">Skip to content</a>
         <ScrollProgress />
         <CursorSparkles />
+        <KeyboardShortcuts />
         {/* Vercel Web Analytics: privacy-friendly page-view counts, only active on Vercel deployments. */}
         <Analytics />
         {children}

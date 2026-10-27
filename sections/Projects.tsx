@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { projects } from "@/data/portfolio";
 import ProjectArtwork from "@/sections/ProjectArtwork";
 import Reveal from "@/sections/Reveal";
@@ -14,18 +15,18 @@ export default function Projects() {
                     <Reveal className="work-item-inner" delay={project.featured ? 0 : ((index - 1) % 2) * 0.08}>
                     {project.featured ? (
                         <ScrollScale className="project-visual-wrap">
-                            <Link className="project-visual-link" href={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`}>
-                                <ProjectArtwork slug={project.slug} index={index} /><span className="project-open">View project</span>
+                            <Link className="project-visual-link" href={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`} transitionTypes={["nav-forward"]}>
+                                <ViewTransition name={`project-art-${project.slug}`} share="morph" default="none"><ProjectArtwork slug={project.slug} index={index} /></ViewTransition><span className="project-open">View project</span>
                             </Link>
                         </ScrollScale>
                     ) : (
                         <div className="project-visual-link">
-                            <ProjectArtwork slug={project.slug} index={index} />
+                            <ViewTransition name={`project-art-${project.slug}`} share="morph" default="none"><ProjectArtwork slug={project.slug} index={index} /></ViewTransition>
                         </div>
                     )}
                     <div className="work-copy">
                     <div className="project-meta"><span>{project.category}</span><span>0{index + 1}</span></div>
-                    <h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3>
+                    <h3><Link href={`/projects/${project.slug}`} transitionTypes={["nav-forward"]}>{project.title}</Link></h3>
                     <p>{project.shortDescription}</p>
                     <ul className="tech-chips" aria-label={`${project.title} technologies`}>{project.tech.map(tech => <li key={tech}>{tech}</li>)}</ul>
                     </div>

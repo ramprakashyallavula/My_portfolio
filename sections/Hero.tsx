@@ -69,6 +69,7 @@ export default function Hero() {
                         <Rise delay={0.1}><p className={styles.hello}>Hi, I’m</p></Rise>
                         <h1 id="intro-title"><Line delay={0.2}>Ram Prakash</Line><Line delay={0.32}><em>Yallavula.</em></Line></h1>
                         <Rise delay={0.55}><p className={styles.statement}>I build web apps and<br />the systems behind them.</p></Rise>
+                        <Rise delay={0.62}><p className={styles.summary}>Recent MS grad, University at Buffalo · AWS Certified Solutions Architect · Buffalo, NY, open to relocation</p></Rise>
                         <Rise delay={0.68}><p className={styles.description}>Mostly React and TypeScript on the frontend, Python and Java on the backend, and AWS to run it all. Right now I’m building TaskFlow AI, a task planner with a FastAPI backend.</p></Rise>
                         <Rise delay={0.8} className={styles.actions}>
                             <Magnetic><a href="#projects" className="button button-dark">See my projects</a></Magnetic>

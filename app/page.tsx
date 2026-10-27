@@ -8,6 +8,8 @@ import EngineeringApproach from "@/sections/EngineeringApproach";
 import Timeline from "@/sections/Timeline";
 import Now from "@/sections/Now";
 import Footer from "@/sections/Footer";
+import Background from "@/sections/Background";
+import NotesTeaser from "@/sections/NotesTeaser";
 
 export default function Home() {
     return (
@@ -18,9 +20,11 @@ export default function Home() {
             <Projects />
             <EngineeringApproach />
             <Skills />
+            <Background />
             <Timeline />
             <About />
             <Now />
+            <NotesTeaser />
             <Contact />
         </main>
             <Footer />

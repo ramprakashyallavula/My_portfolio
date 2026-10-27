@@ -17,6 +17,7 @@
 .copy h1 { font-size: clamp(46px, 5.65vw, 84px); line-height: 1.03; font-weight: 600; letter-spacing: -.065em; }
 .copy h1 em { font-family: Georgia, serif; font-weight: 400; color: var(--sand); letter-spacing: -.05em;  }
 .statement { font-size: clamp(22px, 2.4vw, 34px); letter-spacing: -.04em; line-height: 1.18; margin-top: 28px; }
+.summary { display: inline-block; margin-top: 18px; padding: 6px 12px; border-left: 2px solid var(--sage); background: color-mix(in srgb, var(--sage) 10%, transparent); font: 500 12.5px/1.5 var(--font-geist-mono), monospace; letter-spacing: .01em; color: var(--ink-soft); }
 .description { max-width: 460px; color: var(--ink-soft); font-size: 16px; margin-top: 20px; }
 .actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 30px; }
 .profiles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
@@ -72,6 +73,7 @@
   .copy h1 { font-size: clamp(42px, 10vw, 70px); }
   .statement { margin-top: 22px; font-size: 26px; }
   .description { font-size: 15px; margin-top: 14px; }
+  .summary { font-size: 11.5px; }
   .profiles { margin-top: 20px; }
   .actions { margin-top: 22px; gap: 22px; }
   .scene { width: min(430px, 94%); margin-inline: auto; height: 300px; }
