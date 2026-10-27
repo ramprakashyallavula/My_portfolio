@@ -24,7 +24,7 @@ No database, API routes, authentication, separate UI library, or automated test 
 
 ## Structure and architecture
 
-- `app/layout.tsx`: global styles, fonts, metadata, skip link, profile JSON-LD. Its data-scroll-behavior attribute lets Next manage smooth-scroll behavior during route transitions.
+- `app/layout.tsx`: global styles, fonts, metadata, skip link, profile JSON-LD, and Vercel Web Analytics (`<Analytics />` from `@vercel/analytics/next`; debug-only in development, reports page views on Vercel deployments). Its data-scroll-behavior attribute lets Next manage smooth-scroll behavior during route transitions.
 - `app/page.tsx`: Navbar, Hero, Projects, EngineeringApproach, Skills, Timeline, About, Now, Contact, Footer. Navigation/footer sit outside the main landmark.
 - `app/globals.css`: design tokens, custom semantic CSS classes, responsive rules, focus and reduced-motion styles; retains Tailwind import.
 - `app/projects/[slug]/page.tsx`: static project overviews from shared data; Promise-based route params; unknown slugs call notFound.
